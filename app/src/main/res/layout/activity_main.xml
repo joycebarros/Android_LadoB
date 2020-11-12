@@ -8,9 +8,9 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="150dp"
-        android:src="@drawable/ic_restaurante"
+        android:src="@mipmap/ic_gravata_foreground"
         tools:layout_editor_absoluteX="153dp"
         tools:layout_editor_absoluteY="275dp"
         app:layout_constraintEnd_toEndOf="parent"
