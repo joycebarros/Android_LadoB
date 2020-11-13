@@ -7,6 +7,10 @@ public class Products {
     private String description;
     private Double unitPrice;
 
+    public Products(){
+
+    }
+
     public Products(String name, String description, Double unitPrice) {
         this.name = name;
         this.description = description;
