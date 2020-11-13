@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.android_ladob.R;
@@ -43,5 +44,14 @@ public class CostumersActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ImageView imageView = findViewById(R.id.imag_voltar);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CostumersActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
