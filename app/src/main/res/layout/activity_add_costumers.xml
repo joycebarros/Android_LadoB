@@ -118,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@id/txtSenha"/>
 
     <Button
-        android:id="@+id/btnEntrar"
+        android:id="@+id/btnSalvar"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="#EF4C40"

@@ -1,5 +1,6 @@
 package com.example.android_ladob.config;
 
+import com.example.android_ladob.service.CostumersService;
 import com.example.android_ladob.service.ProductsService;
 
 import retrofit2.Retrofit;
@@ -18,5 +19,9 @@ public class RetrofitConfig {
 
     public ProductsService getProductsService(){
         return retrofit.create(ProductsService.class);
+    }
+
+    public CostumersService getCostumersService(){
+        return retrofit.create(CostumersService.class);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.android_ladob.model;
 
-public class Products {
+import java.io.Serializable;
+
+public class Products implements Serializable {
 
     private Long id;
     private String name;

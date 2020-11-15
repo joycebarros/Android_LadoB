@@ -1,12 +1,18 @@
 package com.example.android_ladob.model;
 
-public class Costumers {
+import java.io.Serializable;
+
+public class Costumers implements Serializable {
 
     private Long id;
     private String name;
     private String email;
     private String telephone;
     private String password;
+
+    public Costumers() {
+
+    }
 
     public Costumers(String name, String email, String telephone, String password) {
         this.name = name;

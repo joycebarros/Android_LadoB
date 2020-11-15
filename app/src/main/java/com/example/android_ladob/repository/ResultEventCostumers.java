@@ -7,5 +7,6 @@ import java.util.List;
 public interface ResultEventCostumers {
 
     void onResult(List<Costumers> costumers);
+    void onResult(Costumers costumers);
     void onFail(String message);
 }

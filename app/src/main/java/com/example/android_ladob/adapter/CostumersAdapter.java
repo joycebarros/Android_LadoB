@@ -10,15 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.android_ladob.R;
 import com.example.android_ladob.model.Costumers;
+
+import java.util.List;
 
 public class CostumersAdapter extends RecyclerView.Adapter<CostumersAdapter.CostumersHolder> {
 
     private Context context;
     private final LayoutInflater mInflater;
-    private Costumers costumers;
+    private List<Costumers> costumers;
 
-    public CostumersAdapter(Context context, Costumers costumers) {
+    public CostumersAdapter(Context context, List<Costumers> costumers) {
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.costumers = costumers;
@@ -27,30 +30,29 @@ public class CostumersAdapter extends RecyclerView.Adapter<CostumersAdapter.Cost
     @NonNull
     @Override
     public CostumersHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View itemView = mInflater.inflate(R.layout.activity_costumers, parent, false);
+        return new CostumersHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CostumersHolder holder, int position) {
         //  Picasso.get().load("https://ead.catolica.edu.br/hubfs/Blog/0-por-que-ser-professor-ainda-e-muito-importante.jpg").into(holder.imageView);
-
+        holder.textname.setText(costumers.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return costumers.size();
     }
 
 
     public class CostumersHolder extends RecyclerView.ViewHolder{
 
-        ImageView imageView;
-        TextView textView;
+        TextView textname;
 
         public CostumersHolder(@NonNull View itemView) {
             super(itemView);
-//            imageView = itemView.findViewById(R.id.image_curso);
-//            textView = itemView.findViewById(R.id.tv_curso_nome);
+            textname = itemView.findViewById(R.id.txt_name);
 
         }
     }

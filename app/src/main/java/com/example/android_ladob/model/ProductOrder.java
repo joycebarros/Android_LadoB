@@ -1,12 +1,17 @@
 package com.example.android_ladob.model;
 
-public class ProductOrder {
+import java.io.Serializable;
+
+public class ProductOrder implements Serializable {
 
     private Long id;
     private Integer quantity;
     private Orders orders;
     private Products products;
 
+    public ProductOrder(){
+
+    }
     public ProductOrder(Integer quantity, Orders orders, Products products) {
         this.quantity = quantity;
         this.orders = orders;

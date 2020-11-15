@@ -41,7 +41,6 @@ public class ProductsActivity extends AppCompatActivity {
         getAllProducts(new ResultEventProducts() {
             @Override
             public void onResult(List<Products> products) {
-              //  List<Products> listProducts = products;
                 productsAdapter = new ProductsAdapter(ProductsActivity.this, products);
                 recyclerView.setAdapter(productsAdapter);
             }

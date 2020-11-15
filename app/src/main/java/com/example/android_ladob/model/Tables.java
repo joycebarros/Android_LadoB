@@ -1,10 +1,16 @@
 package com.example.android_ladob.model;
 
-public class Tables {
+import java.io.Serializable;
+
+public class Tables implements Serializable {
 
     private Integer id;
     private String code;
     private Integer seats;
+
+    public Tables(){
+
+    }
 
     public Tables(String code, Integer seats) {
         this.code = code;

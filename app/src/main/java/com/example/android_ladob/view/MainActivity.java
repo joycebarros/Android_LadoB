@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.android_ladob.R;
+import com.example.android_ladob.model.Costumers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,5 +35,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+
+    public Costumers getCostumer (String email){
+        Costumers costumer = new Costumers();
+        costumer.setEmail(email);
+        
+
+        return costumer;
     }
 }
