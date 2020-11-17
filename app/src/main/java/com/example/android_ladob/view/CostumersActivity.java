@@ -32,7 +32,7 @@ public class CostumersActivity extends AppCompatActivity {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CostumersActivity.this, OrderActivity.class);
+                Intent intent = new Intent(CostumersActivity.this, ProductOrderActivity.class);
                 startActivity(intent);
             }
         });

@@ -13,8 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_ladob.R;
-import com.example.android_ladob.model.ProductOrder;
 import com.example.android_ladob.model.Products;
+import com.example.android_ladob.view.AddProductsActivity;
 import com.example.android_ladob.view.ProductsActivity;
 
 import java.util.List;
@@ -70,13 +70,12 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             parentLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, ProductsActivity.class);
+                    Intent intent = new Intent(context, AddProductsActivity.class);
                     Products product =  products.get(getAdapterPosition());
                     intent.putExtra(ITEM_ID_EXTRA, product);
                     context.startActivity(intent);
                 }
             });
-
         }
     }
 }

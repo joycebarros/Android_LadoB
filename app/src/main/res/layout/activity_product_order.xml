@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".view.ProductOrderActivity">
+
+    <ImageView
+        android:id="@+id/imag_gravata"
+        android:layout_width="130dp"
+        android:layout_height="110dp"
+        android:src="@drawable/ic_gravata"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_ResumoPedidos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Resumo dos Pedidos"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#EF4C40"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/imag_gravata">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/imag_voltar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_resposta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_productsPedido"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_ResumoPedidos"/>
+
+    <Button
+        android:id="@+id/btFecharConta"
+        android:layout_width="210dp"
+        android:layout_height="match_parent"
+        android:text="Fechar conta"
+        android:layout_marginTop="40dp"
+        android:background="#EF4C40"
+        android:textColor="#F8F6FA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_productsPedido"/>
+
+    <TextView
+        android:id="@+id/tv_totalPedido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Total do Pedido:"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_productsPedido"
+        android:gravity="center_horizontal"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

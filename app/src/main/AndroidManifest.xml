@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.PagamentoActivity"></activity>
-        <activity android:name=".view.OrderActivity" />
+        <activity android:name=".view.FazerPedidoActivity"></activity>
+        <activity android:name=".view.ProductOrderActivity" />
+        <activity android:name=".view.AddProductsActivity" />
+        <activity android:name=".view.PagamentoActivity" />
         <activity android:name=".view.ProductsActivity" />
         <activity android:name=".view.AddCostumersActivity" />
         <activity android:name=".view.CostumersActivity" />

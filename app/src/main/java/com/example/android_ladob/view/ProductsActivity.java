@@ -1,10 +1,14 @@
 package com.example.android_ladob.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.android_ladob.R;
@@ -30,7 +34,6 @@ public class ProductsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_products);
 
         recyclerView = findViewById(R.id.rv_products);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
@@ -43,6 +46,7 @@ public class ProductsActivity extends AppCompatActivity {
             public void onResult(List<Products> products) {
                 productsAdapter = new ProductsAdapter(ProductsActivity.this, products);
                 recyclerView.setAdapter(productsAdapter);
+
             }
 
             @Override
@@ -52,19 +56,19 @@ public class ProductsActivity extends AppCompatActivity {
         });
     }
 
-    public void getAllProducts(final ResultEventProducts resultEventProducts){
-        Call<List<Products>> call = new RetrofitConfig().getProductsService().getAllProducts();
-        call.enqueue(new Callback<List<Products>>() {
-            @Override
-            public void onResponse(Call<List<Products>> call, Response<List<Products>> response) {
-                List<Products> productsList = response.body();
-                resultEventProducts.onResult(productsList);
-            }
+    public void getAllProducts (final ResultEventProducts resultEventProducts){
+            Call<List<Products>> call = new RetrofitConfig().getProductsService().getAllProducts();
+            call.enqueue(new Callback<List<Products>>() {
+                @Override
+                public void onResponse(Call<List<Products>> call, Response<List<Products>> response) {
+                    List<Products> productsList = response.body();
+                    resultEventProducts.onResult(productsList);
+                }
 
-            @Override
-            public void onFailure(Call<List<Products>> call, Throwable t) {
-                resultEventProducts.onFail("Falha na requisição!");
-            }
-        });
+                @Override
+                public void onFailure(Call<List<Products>> call, Throwable t) {
+                    resultEventProducts.onFail("Falha na requisição!");
+                }
+            });
+        }
     }
-}

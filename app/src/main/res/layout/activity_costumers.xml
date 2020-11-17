@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="360dp"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:layout_gravity="center_horizontal"
     tools:context=".view.MainActivity">
 
     <ImageView
