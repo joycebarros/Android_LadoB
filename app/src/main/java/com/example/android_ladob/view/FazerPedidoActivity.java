@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android_ladob.R;
@@ -30,6 +31,7 @@ public class FazerPedidoActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductOrderAdapter productOrderAdapter;
     private List<ProductOrder> productOrderList;
+    private TextView totalPedido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class FazerPedidoActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rv_productsPedido);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        totalPedido = findViewById(R.id.tv_totalPedido);
 
         products = (Products) getIntent().getSerializableExtra(AddProductsActivity.ITEM_ID_EXTRA);
 
@@ -75,6 +79,13 @@ public class FazerPedidoActivity extends AppCompatActivity {
                 List<ProductOrder> productOrderList = new ArrayList<>();
                 productOrderList.add(productOrder);
                 resultEventProductOrder.onResult(productOrderList);
+                Double total = 0.0;
+                for (ProductOrder productOrder1 : productOrderList) {
+                    Double valor = productOrder1.getProducts().getUnitPrice() * productOrder1.getQuantity();
+                    total = total + valor;
+                }
+                totalPedido.setText(String.valueOf(total));
+
             }
 
             @Override

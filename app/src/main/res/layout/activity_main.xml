@@ -63,18 +63,35 @@
         android:background="#EF4C40"
         android:textColor="@color/cardview_light_background"
         android:text="Entrar"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edtSenha"/>
 
     <TextView
         android:id="@+id/txtNovoCadastro"
-        android:layout_width="300dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="É novo por aqui? Cadastre-se"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="60dp"
+        android:text="É novo por aqui?"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtNovoCadastro2"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEntrar" />
+
+    <TextView
+        android:id="@+id/txtNovoCadastro2"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Cadastre-se"
+        android:textStyle="bold"
+        android:textColor="#EF4C40"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtNovoCadastro"
         app:layout_constraintTop_toBottomOf="@id/btnEntrar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

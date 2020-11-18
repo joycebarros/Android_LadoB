@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView txtCadastro = findViewById(R.id.txtNovoCadastro);
+        TextView txtCadastro = findViewById(R.id.txtNovoCadastro2);
         txtCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,12 +37,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    public Costumers getCostumer (String email){
-        Costumers costumer = new Costumers();
-        costumer.setEmail(email);
-        
-
-        return costumer;
-    }
 }
