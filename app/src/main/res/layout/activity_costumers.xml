@@ -41,151 +41,166 @@
         android:textStyle="bold" />
 
     <LinearLayout
-            android:id="@+id/llReservar"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_marginTop="130dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+        android:id="@+id/llReservar"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="130dp"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_data_do_calendario" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_data_do_calendario" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="Reservar"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Reservar"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/llOrder"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_below="@+id/llReservar"
-            android:layout_marginTop="30dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+    <LinearLayout
+        android:id="@+id/llOrder"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_below="@+id/llReservar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_papel" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_papel" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="Pedidos"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Pedidos"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
-        </LinearLayout>
+    </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/llProducts"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="130dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+    <LinearLayout
+        android:id="@+id/llProducts"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="119dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_talheres" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_talheres" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="Cardápio"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Cardápio"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/llPagamento"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_below="@+id/llProducts"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="30dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+    <LinearLayout
+        android:id="@+id/llPagamento"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_below="@+id/llProducts"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_pedido" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_pedido" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="Pagamento"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Pagamento"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llMinha_conta"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_below="@+id/llOrder"
-            android:layout_marginTop="30dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+    </LinearLayout>
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_person_24" />
+    <LinearLayout
+        android:id="@+id/llMinha_conta"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_below="@+id/llOrder"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="17dp"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="Minha Conta"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_person_24" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llAjuda"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_below="@+id/llPagamento"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="30dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Minha Conta"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_help_outline_24" />
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="Ajuda"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+    <LinearLayout
+        android:id="@+id/llAjuda"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_below="@+id/llPagamento"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        </LinearLayout>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_help_outline_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Ajuda"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </RelativeLayout>

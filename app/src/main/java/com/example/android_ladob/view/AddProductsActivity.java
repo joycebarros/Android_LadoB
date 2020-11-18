@@ -67,7 +67,7 @@ public class AddProductsActivity extends AppCompatActivity {
         btAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddProductsActivity.this, FazerPedidoActivity.class);
+                Intent intent = new Intent(AddProductsActivity.this, teste_addPedido.class);
                 intent.putExtra(ITEM_ID_EXTRA, products);
                 startActivity(intent);
             }

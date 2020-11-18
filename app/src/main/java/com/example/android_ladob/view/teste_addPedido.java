@@ -1,15 +1,14 @@
-/**
 package com.example.android_ladob.view;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_ladob.R;
 import com.example.android_ladob.adapter.ProductOrderAdapter;
@@ -25,29 +24,29 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-public class FazerPedidoActivity extends AppCompatActivity {
+public class teste_addPedido extends AppCompatActivity {
 
     private Products products;
     private RecyclerView recyclerView;
     private ProductOrderAdapter productOrderAdapter;
     private List<ProductOrder> productOrderList;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fazer_pedido);
+        setContentView(R.layout.teste_pedidos);
 
         recyclerView = findViewById(R.id.rv_productsPedido);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         products = (Products) getIntent().getSerializableExtra(AddProductsActivity.ITEM_ID_EXTRA);
 
-        ImageView imageView = findViewById(R.id.imag_voltar);
+        ImageView imageView = findViewById(R.id.img_voltar);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FazerPedidoActivity.this, AddProductsActivity.class);
+                Intent intent = new Intent(teste_addPedido.this, AddProductsActivity.class);
                 finish();
             }
         });
@@ -55,19 +54,19 @@ public class FazerPedidoActivity extends AppCompatActivity {
         getProductOrder(products.getId(), new ResultEventProductOrder() {
             @Override
             public void onResult(List<ProductOrder> productOrders) {
-                productOrderAdapter = new ProductOrderAdapter(FazerPedidoActivity.this, productOrders);
+                productOrderAdapter = new ProductOrderAdapter(teste_addPedido.this, productOrders);
                 recyclerView.setAdapter(productOrderAdapter);
             }
 
             @Override
             public void onFail(String message) {
-                Toast.makeText(FazerPedidoActivity.this, message, Toast.LENGTH_LONG).show();
+                Toast.makeText(teste_addPedido.this, message, Toast.LENGTH_LONG).show();
             }
         });
 
     }
 
-    public void getProductOrder(Long id, final ResultEventProductOrder resultEventProductOrder){
+    public void getProductOrder(Long id, final ResultEventProductOrder resultEventProductOrder) {
         Call<ProductOrder> call = new RetrofitConfig().getProductOrderService().getProductOrder(id);
 
         call.enqueue(new Callback<ProductOrder>() {
@@ -86,4 +85,5 @@ public class FazerPedidoActivity extends AppCompatActivity {
         });
     }
 }
-**/
+
+
