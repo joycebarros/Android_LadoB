@@ -60,7 +60,7 @@
         android:id="@+id/btnEntrar"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="#EF4C40"
+        android:background="@drawable/bt_rodeon"
         android:textColor="@color/cardview_light_background"
         android:text="Entrar"
         app:layout_constraintEnd_toEndOf="parent"

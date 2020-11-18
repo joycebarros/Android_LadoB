@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.FazerPedidoActivity"></activity>
+        <activity android:name=".view.teste_addPedido"/>
         <activity android:name=".view.ProductOrderActivity" />
         <activity android:name=".view.AddProductsActivity" />
         <activity android:name=".view.PagamentoActivity" />
