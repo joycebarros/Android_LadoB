@@ -19,14 +19,15 @@
 
     <TextView
         android:id="@+id/tv_produto_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
+        android:layout_width="263dp"
+        android:layout_height="31dp"
+        android:gravity="center"
         android:text="Aqui entra o nome do produto"
         android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_queijudo"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_queijudo" />
 
     <ImageView
         android:id="@+id/imag_cancel"
@@ -38,22 +39,38 @@
 
     <TextView
         android:id="@+id/tv_produto_descricao"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="263dp"
+        android:layout_height="38dp"
         android:text="Descrição do produto"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_produto_name" />
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="55dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center|end"
+        android:text="R$"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btMenos"
+        app:layout_constraintEnd_toStartOf="@+id/tv_valor" />
+
+    <TextView
         android:id="@+id/tv_valor"
-        android:layout_width="70dp"
-        android:layout_height="0dp"
+        android:layout_width="68dp"
+        android:layout_height="24dp"
         android:gravity="center"
-        android:textSize="16dp"
         android:text="preço"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#EF4C40"
+        android:textSize="16dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_produto_descricao" />
 
     <Button
