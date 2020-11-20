@@ -84,7 +84,7 @@ public class ProductOrderActivity extends AppCompatActivity {
             public void onResponse(Call<List<ProductOrder>> call, Response<List<ProductOrder>> response) {
                 productOrderList = response.body();
                 resultEventProductOrder.onResult(productOrderList);
-                Double total = 0.0;
+                Double total = 0.00;
                 for (ProductOrder productOrder : productOrderList) {
                     Double valor = productOrder.getProducts().getUnitPrice() * productOrder.getQuantity();
                     total = total + valor;

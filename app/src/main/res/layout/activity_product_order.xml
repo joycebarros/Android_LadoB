@@ -50,7 +50,7 @@
         android:layout_height="match_parent"
         android:text="Fechar conta"
         android:layout_marginTop="40dp"
-        android:background="#EF4C40"
+        android:background="@drawable/bt_rodeon"
         android:textColor="#F8F6FA"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

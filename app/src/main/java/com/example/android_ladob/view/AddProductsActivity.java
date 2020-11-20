@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.example.android_ladob.R;
 import com.example.android_ladob.adapter.ProductsAdapter;
 import com.example.android_ladob.config.RetrofitConfig;
+import com.example.android_ladob.model.ProductOrder;
 import com.example.android_ladob.model.Products;
 import com.example.android_ladob.repository.ResultEventProducts;
 
@@ -34,7 +36,10 @@ public class AddProductsActivity extends AppCompatActivity {
     private TextView tvQuantidade;
     private int totalQuantidade = 1;
     private ImageView btCancelar;
+    private ProductOrder productOrder;
+    private List<ProductOrder> productOrderList;
     public final static String ITEM_ID_EXTRA = "ProdutoID";
+    public final static String ITEM_QUANTIDADE_EXTRA = "ProdutoQt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,8 @@ public class AddProductsActivity extends AppCompatActivity {
         descricao.setText(products.getDescription());
         valor.setText(String.valueOf(products.getUnitPrice()));
 
+        setOnClickOnButtons();
+
         btCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,13 +76,13 @@ public class AddProductsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AddProductsActivity.this, FazerPedidoActivity.class);
                 intent.putExtra(ITEM_ID_EXTRA, products);
+               // productOrder.setQuantity(totalQuantidade);
+                intent.putExtra(ITEM_QUANTIDADE_EXTRA, totalQuantidade);
                 startActivity(intent);
             }
         });
 
-        setOnClickOnButtons();
     }
-
 
     public void setOnClickOnButtons(){
         btMenos.setOnClickListener(new View.OnClickListener() {
