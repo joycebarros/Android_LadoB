@@ -15,11 +15,13 @@ import android.widget.Toast;
 
 import com.example.android_ladob.R;
 import com.example.android_ladob.adapter.ProductOrderAdapter;
+import com.example.android_ladob.adapter.ProductsAdapter;
 import com.example.android_ladob.config.RetrofitConfig;
 import com.example.android_ladob.model.Orders;
 import com.example.android_ladob.model.ProductOrder;
 import com.example.android_ladob.model.Products;
 import com.example.android_ladob.repository.ResultEventProductOrder;
+import com.example.android_ladob.repository.ResultEventProducts;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,7 @@ public class FazerPedidoActivity extends AppCompatActivity {
 
     private Products products;
     private RecyclerView recyclerView;
-    private ProductOrderAdapter productOrderAdapter;
+    private ProductsAdapter productsAdapter;
     private List<ProductOrder> productOrderList;
     private ProductOrder productOrder;
     private TextView totalPedido;
@@ -60,7 +62,9 @@ public class FazerPedidoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(FazerPedidoActivity.this, ProductsActivity.class);
-                finish();
+                //fechar todas as telas anteriores
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
             }
         });
 
@@ -71,11 +75,11 @@ public class FazerPedidoActivity extends AppCompatActivity {
             }
         });
 
-        getProductOrder(products.getId(), new ResultEventProductOrder() {
+        getProductId(products.getId(), new ResultEventProducts() {
             @Override
-            public void onResult(List<ProductOrder> productOrders) {
-                productOrderAdapter = new ProductOrderAdapter(FazerPedidoActivity.this, productOrders);
-                recyclerView.setAdapter(productOrderAdapter);
+            public void onResult(List<Products> products) {
+                productsAdapter = new ProductsAdapter(FazerPedidoActivity.this, products);
+                recyclerView.setAdapter(productsAdapter);
             }
 
             @Override
@@ -87,32 +91,33 @@ public class FazerPedidoActivity extends AppCompatActivity {
         addMaisItens.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(FazerPedidoActivity.this, AddProductsActivity.class);
+                intent = new Intent(FazerPedidoActivity.this, ProductsActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
         });
 
     }
 
-    public void getProductOrder(Long id, final ResultEventProductOrder resultEventProductOrder){
-        Call<ProductOrder> call = new RetrofitConfig().getProductOrderService().getProductOrder(id);
 
-        call.enqueue(new Callback<ProductOrder>() {
+//    Double total = productOrder.getProducts().getUnitPrice() * productOrder.getQuantity();
+//                totalPedido.setText(String.valueOf(total));
+
+    public void getProductId (Long id, final ResultEventProducts resultEventProducts){
+        Call<Products> call = new RetrofitConfig().getProductsService().getProducts(id);
+
+        call.enqueue(new Callback<Products>() {
             @Override
-            public void onResponse(Call<ProductOrder> call, Response<ProductOrder> response) {
-                ProductOrder productOrder = response.body();
-                productOrderList = new ArrayList<>();
-                productOrderList.add(productOrder);
-                resultEventProductOrder.onResult(productOrderList);
-
-                Double total = productOrder.getProducts().getUnitPrice() * productOrder.getQuantity();
-                totalPedido.setText(String.valueOf(total));
-
+            public void onResponse(Call<Products> call, Response<Products> response) {
+                Products products = response.body();
+                List<Products> productsList = new ArrayList<>();
+                productsList.add(products);
+                resultEventProducts.onResult(productsList);
             }
 
             @Override
-            public void onFailure(Call<ProductOrder> call, Throwable t) {
-                resultEventProductOrder.onFail("Falha na requisição!");
+            public void onFailure(Call<Products> call, Throwable t) {
+                resultEventProducts.onFail("Falha na requisição!");
             }
         });
     }

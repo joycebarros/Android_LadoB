@@ -66,7 +66,6 @@ public class AddProductsActivity extends AppCompatActivity {
         btCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddProductsActivity.this, ProductsActivity.class);
                 finish();
             }
         });
