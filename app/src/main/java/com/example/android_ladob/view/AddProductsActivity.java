@@ -36,6 +36,7 @@ public class AddProductsActivity extends AppCompatActivity {
     private TextView tvQuantidade;
     private int totalQuantidade = 1;
     private ImageView btCancelar;
+    private TextView valor;
     private ProductOrder productOrder;
     private List<ProductOrder> productOrderList;
     public final static String ITEM_ID_EXTRA = "ProdutoID";
@@ -56,7 +57,7 @@ public class AddProductsActivity extends AppCompatActivity {
 
         TextView name = findViewById(R.id.tv_produto_name);
         TextView descricao = findViewById(R.id.tv_produto_descricao);
-        TextView valor = findViewById(R.id.tv_valor);
+        valor = findViewById(R.id.tv_valor);
         name.setText(products.getName());
         descricao.setText(products.getDescription());
         valor.setText(String.valueOf(products.getUnitPrice()));
@@ -93,6 +94,7 @@ public class AddProductsActivity extends AppCompatActivity {
                     Toast.makeText(AddProductsActivity.this, "A quantidade precisa ser maior do que zero", Toast.LENGTH_LONG).show();
                 }
                 tvQuantidade.setText(String.valueOf(totalQuantidade));
+                valor.setText(String.valueOf(products.getUnitPrice() * totalQuantidade));
             }
         });
 
@@ -101,6 +103,7 @@ public class AddProductsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 totalQuantidade = totalQuantidade + 1;
                 tvQuantidade.setText(String.valueOf(totalQuantidade));
+                valor.setText(String.valueOf(products.getUnitPrice() * totalQuantidade));
             }
         });
 

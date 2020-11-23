@@ -35,7 +35,6 @@ public class FazerPedidoActivity extends AppCompatActivity {
     private Products products;
     private RecyclerView recyclerView;
     private ProductsAdapter productsAdapter;
-    private List<ProductOrder> productOrderList;
     private ProductOrder productOrder;
     private TextView totalPedido;
     private TextView addMaisItens;
@@ -57,21 +56,17 @@ public class FazerPedidoActivity extends AppCompatActivity {
         products = (Products) getIntent().getSerializableExtra(AddProductsActivity.ITEM_ID_EXTRA);
         quantidade = (int) getIntent().getSerializableExtra(AddProductsActivity.ITEM_QUANTIDADE_EXTRA);
 
+        TextView tvQuantidade = findViewById(R.id.tv_quantidade2);
+      // tvQuantidade.setText(quantidade);
+
         ImageView imageView = findViewById(R.id.imag_voltar);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(FazerPedidoActivity.this, ProductsActivity.class);
                 //fechar todas as telas anteriores
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-            }
-        });
-
-        btFazerPedido.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createProductOrder(productOrder);
             }
         });
 
@@ -88,20 +83,26 @@ public class FazerPedidoActivity extends AppCompatActivity {
             }
         });
 
+        btFazerPedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createProductOrder(productOrder);
+            }
+        });
+
         addMaisItens.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(FazerPedidoActivity.this, ProductsActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
 
     }
 
-
-//    Double total = productOrder.getProducts().getUnitPrice() * productOrder.getQuantity();
-//                totalPedido.setText(String.valueOf(total));
+    //    Double total = productOrder.getProducts().getUnitPrice() * productOrder.getQuantity();
+//    totalPedido.setText(String.valueOf(total));
 
     public void getProductId (Long id, final ResultEventProducts resultEventProducts){
         Call<Products> call = new RetrofitConfig().getProductsService().getProducts(id);

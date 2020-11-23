@@ -43,6 +43,9 @@ public class ProductOrderAdapter extends RecyclerView.Adapter<ProductOrderAdapte
         holder.tvName.setText(productOrders.get(position).getProducts().getName());
         holder.tvDescricao.setText(productOrders.get(position).getProducts().getDescription());
         holder.tvValor.setText(String.valueOf(productOrders.get(position).getProducts().getUnitPrice()));
+        holder.tvQuantidade.setText(String.valueOf(productOrders.get(position).getQuantity()));
+        holder.tvValorTotal.setText(String.valueOf(productOrders.get(position).getProducts().getUnitPrice() *
+                productOrders.get(position).getQuantity()));
     }
 
     @Override
@@ -56,12 +59,16 @@ public class ProductOrderAdapter extends RecyclerView.Adapter<ProductOrderAdapte
         TextView tvName;
         TextView tvDescricao;
         TextView tvValor;
+        TextView tvQuantidade;
+        TextView tvValorTotal;
 
         public ProductOrdersHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_produto_name);
             tvDescricao = itemView.findViewById(R.id.tv_produto_descricao);
             tvValor = itemView.findViewById(R.id.tv_valor);
+            tvQuantidade = itemView.findViewById(R.id.tv_quantidade);
+            tvValorTotal = itemView.findViewById(R.id.tv_total);
 
         }
     }

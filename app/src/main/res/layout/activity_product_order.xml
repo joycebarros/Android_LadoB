@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".view.ProductOrderActivity">
 
     <ImageView
@@ -17,14 +17,16 @@
 
     <TextView
         android:id="@+id/txt_ResumoPedidos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Resumo dos Pedidos"
         android:textSize="25dp"
         android:textStyle="bold"
         android:textColor="#EF4C40"
         android:gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/imag_gravata">
+        app:layout_constraintTop_toBottomOf="@+id/imag_gravata"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
     </TextView>
 
     <ImageView
@@ -38,7 +40,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_productsPedido"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,8 +48,8 @@
 
     <Button
         android:id="@+id/btFecharConta"
-        android:layout_width="210dp"
-        android:layout_height="match_parent"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:text="Fechar conta"
         android:layout_marginTop="40dp"
         android:background="@drawable/bt_rodeon"
