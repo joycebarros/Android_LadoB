@@ -1,6 +1,7 @@
 package com.example.android_ladob.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Products implements Serializable {
 
@@ -8,6 +9,7 @@ public class Products implements Serializable {
     private String name;
     private String description;
     private Double unitPrice;
+    private List<ProductOrder> productOrder;
 
     public Products(){
 
@@ -49,5 +51,13 @@ public class Products implements Serializable {
 
     public void setUnitPrice(Double unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public List<ProductOrder> getProductOrder() {
+        return productOrder;
+    }
+
+    public void setProductOrder(List<ProductOrder> productOrder) {
+        this.productOrder = productOrder;
     }
 }

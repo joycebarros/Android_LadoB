@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android_ladob.R;
+import com.example.android_ladob.adapter.FazerPedidoAdapter;
 import com.example.android_ladob.adapter.ProductOrderAdapter;
 import com.example.android_ladob.adapter.ProductsAdapter;
 import com.example.android_ladob.config.RetrofitConfig;
@@ -34,12 +35,14 @@ public class FazerPedidoActivity extends AppCompatActivity {
 
     private Products products;
     private RecyclerView recyclerView;
-    private ProductsAdapter productsAdapter;
+    private FazerPedidoAdapter fazerPedidoAdapter;
     private ProductOrder productOrder;
     private TextView totalPedido;
     private TextView addMaisItens;
     private Intent intent;
     private int quantidade;
+    private TextView tvQuantidade;
+    private TextView tvValorTotalItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +59,6 @@ public class FazerPedidoActivity extends AppCompatActivity {
         products = (Products) getIntent().getSerializableExtra(AddProductsActivity.ITEM_ID_EXTRA);
         quantidade = (int) getIntent().getSerializableExtra(AddProductsActivity.ITEM_QUANTIDADE_EXTRA);
 
-        TextView tvQuantidade = findViewById(R.id.tv_quantidade2);
-      // tvQuantidade.setText(quantidade);
-
         ImageView imageView = findViewById(R.id.imag_voltar);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,8 +73,8 @@ public class FazerPedidoActivity extends AppCompatActivity {
         getProductId(products.getId(), new ResultEventProducts() {
             @Override
             public void onResult(List<Products> products) {
-                productsAdapter = new ProductsAdapter(FazerPedidoActivity.this, products);
-                recyclerView.setAdapter(productsAdapter);
+                fazerPedidoAdapter = new FazerPedidoAdapter(FazerPedidoActivity.this, products);
+                recyclerView.setAdapter(fazerPedidoAdapter);
             }
 
             @Override
@@ -101,9 +101,6 @@ public class FazerPedidoActivity extends AppCompatActivity {
 
     }
 
-    //    Double total = productOrder.getProducts().getUnitPrice() * productOrder.getQuantity();
-//    totalPedido.setText(String.valueOf(total));
-
     public void getProductId (Long id, final ResultEventProducts resultEventProducts){
         Call<Products> call = new RetrofitConfig().getProductsService().getProducts(id);
 
@@ -113,6 +110,10 @@ public class FazerPedidoActivity extends AppCompatActivity {
                 Products products = response.body();
                 List<Products> productsList = new ArrayList<>();
                 productsList.add(products);
+
+                Double total = products.getUnitPrice() * quantidade;
+                totalPedido.setText(String.valueOf(total));
+
                 resultEventProducts.onResult(productsList);
             }
 

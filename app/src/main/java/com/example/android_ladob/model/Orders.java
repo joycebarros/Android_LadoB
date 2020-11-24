@@ -3,12 +3,14 @@ package com.example.android_ladob.model;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 public class Orders implements Serializable {
 
     private Long id;
     private Date orderDate;
     private Time orderTime;
+    private List<ProductOrder> productOrder;
 
     public Orders() {
 
@@ -43,4 +45,11 @@ public class Orders implements Serializable {
         this.orderTime = orderTime;
     }
 
+    public List<ProductOrder> getProductOrder() {
+        return productOrder;
+    }
+
+    public void setProductOrder(List<ProductOrder> productOrder) {
+        this.productOrder = productOrder;
+    }
 }
