@@ -1,12 +1,15 @@
 package com.example.android_ladob.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
-
+@Entity
 public class Orders implements Serializable {
-
+    @PrimaryKey
     private Long id;
     private Date orderDate;
     private Time orderTime;

@@ -1,21 +1,26 @@
 package com.example.android_ladob.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.DataInput;
 import java.io.Serializable;
 @Entity
-public class ProductOrder implements Serializable {
+public class ProductOrderTemp implements Serializable {
+
     @PrimaryKey
     private Long id;
     private Integer quantity;
     private Orders orders;
     private Products products;
 
-    public ProductOrder(){
+    public ProductOrderTemp(){
 
     }
-    public ProductOrder(Integer quantity, Orders orders, Products products) {
+    public ProductOrderTemp(Integer quantity, Orders orders, Products products) {
         this.quantity = quantity;
         this.orders = orders;
         this.products = products;
@@ -52,4 +57,5 @@ public class ProductOrder implements Serializable {
     public void setProducts(Products products) {
         this.products = products;
     }
+
 }

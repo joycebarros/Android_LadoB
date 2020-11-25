@@ -69,6 +69,19 @@
         app:layout_constraintTop_toBottomOf="@id/edtSenha"/>
 
     <TextView
+        android:id="@+id/esquecisenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Esqueci minha senha"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/btnEntrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
         android:id="@+id/txtNovoCadastro"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
@@ -79,7 +92,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         app:layout_constraintEnd_toStartOf="@+id/txtNovoCadastro2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnEntrar" />
+        app:layout_constraintTop_toBottomOf="@id/esquecisenha" />
 
     <TextView
         android:id="@+id/txtNovoCadastro2"
@@ -92,6 +105,6 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtNovoCadastro"
-        app:layout_constraintTop_toBottomOf="@id/btnEntrar"/>
+        app:layout_constraintTop_toBottomOf="@id/esquecisenha"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

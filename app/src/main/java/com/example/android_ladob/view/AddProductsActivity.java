@@ -17,10 +17,15 @@ import android.widget.Toast;
 import com.example.android_ladob.R;
 import com.example.android_ladob.adapter.ProductsAdapter;
 import com.example.android_ladob.config.RetrofitConfig;
+import com.example.android_ladob.config.RoomConfig;
+import com.example.android_ladob.model.Orders;
 import com.example.android_ladob.model.ProductOrder;
+import com.example.android_ladob.model.ProductOrderTemp;
 import com.example.android_ladob.model.Products;
 import com.example.android_ladob.repository.ResultEventProducts;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -39,13 +44,18 @@ public class AddProductsActivity extends AppCompatActivity {
     private TextView valor;
     private ProductOrder productOrder;
     private List<ProductOrder> productOrderList;
-    public final static String ITEM_ID_EXTRA = "ProdutoID";
-    public final static String ITEM_QUANTIDADE_EXTRA = "ProdutoQt";
+    private RoomConfig dbInstance;
+    private Orders orders;
+    private ProductOrderTemp productOrderTemp;
+    private List<ProductOrderTemp> productOrderTemps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_item_selecionado);
+
+        dbInstance = RoomConfig.getInstance(this);
+        //dbInstance.productOrderTempDAO().deleteAll();
 
         products = (Products) getIntent().getSerializableExtra(ProductsAdapter.ITEM_ID_EXTRA);
 
@@ -74,10 +84,10 @@ public class AddProductsActivity extends AppCompatActivity {
         btAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                productOrderTemp = createProductOrderTemp(totalQuantidade, orders, products);
+                dbInstance.productOrderTempDAO().insertProductOrder(productOrderTemp);
+
                 Intent intent = new Intent(AddProductsActivity.this, FazerPedidoActivity.class);
-                intent.putExtra(ITEM_ID_EXTRA, products);
-               // productOrder.setQuantity(totalQuantidade);
-                intent.putExtra(ITEM_QUANTIDADE_EXTRA, totalQuantidade);
                 startActivity(intent);
             }
         });
@@ -107,5 +117,15 @@ public class AddProductsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public ProductOrderTemp createProductOrderTemp (Integer quantity, Orders orders, Products products){
+        ProductOrderTemp productOrderTemp1 = new ProductOrderTemp();
+        productOrderTemp1.setQuantity(quantity);
+        orders = new Orders();
+        orders.setId((long) 1);
+        productOrderTemp1.setOrders(orders);
+        productOrderTemp1.setProducts(products);
+        return productOrderTemp1;
     }
 }

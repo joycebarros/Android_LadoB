@@ -12,7 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_ladob.R;
+import com.example.android_ladob.config.RoomConfig;
+import com.example.android_ladob.model.ProductOrderTemp;
 import com.example.android_ladob.model.Products;
+import com.example.android_ladob.view.FazerPedidoActivity;
 import com.example.android_ladob.view.ProductsActivity;
 
 import java.util.List;
@@ -21,35 +24,37 @@ public class FazerPedidoAdapter extends RecyclerView.Adapter<FazerPedidoAdapter.
 
     private Context context;
     private LayoutInflater mInflater;
-    private List<Products> products;
+    private List<ProductOrderTemp> productOrderTemps;
+    private RoomConfig dbInstance;
 
-    public FazerPedidoAdapter(Context context, List<Products> products) {
+    public FazerPedidoAdapter(Context context, List<ProductOrderTemp> productOrderTemps) {
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
-        this.products = products;
+        this.productOrderTemps = productOrderTemps;
     }
 
     @NonNull
     @Override
     public FazerPedidoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.layout_fazer_pedido, parent, false);
+        dbInstance = RoomConfig.getInstance(context);
         return new FazerPedidoHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull FazerPedidoHolder holder, int position) {
-        holder.tvName.setText(products.get(position).getName());
-        holder.tvDescricao.setText(products.get(position).getDescription());
-        holder.tvValor.setText(String.valueOf(products.get(position).getUnitPrice()));
-//        holder.tvQuantidade.setText(String.valueOf(products.get(position).getProductOrder().get(position).getQuantity()));
-//        holder.tvValorTotal.setText(String.valueOf(products.get(position).getUnitPrice()
-//                * products.get(position).getProductOrder().get(position).getQuantity()));
+        holder.tvName.setText(productOrderTemps.get(position).getProducts().getName());
+        holder.tvDescricao.setText(productOrderTemps.get(position).getProducts().getDescription());
+        holder.tvValor.setText(String.valueOf(productOrderTemps.get(position).getProducts().getUnitPrice()));
+        holder.tvQuantidade.setText(String.valueOf(productOrderTemps.get(position).getQuantity()));
+        holder.tvValorTotal.setText(String.valueOf(productOrderTemps.get(position).getProducts().getUnitPrice()
+                * productOrderTemps.get(position).getQuantity()));
 
     }
 
     @Override
     public int getItemCount() {
-        return products.size();
+        return productOrderTemps.size();
     }
 
     public class FazerPedidoHolder extends RecyclerView.ViewHolder{
@@ -57,8 +62,8 @@ public class FazerPedidoAdapter extends RecyclerView.Adapter<FazerPedidoAdapter.
         TextView tvName;
         TextView tvDescricao;
         TextView tvValor;
-//        TextView tvQuantidade;
-//        TextView tvValorTotal;
+        TextView tvQuantidade;
+        TextView tvValorTotal;
         ImageView excluir;
 
         public FazerPedidoHolder(@NonNull View itemView) {
@@ -66,19 +71,20 @@ public class FazerPedidoAdapter extends RecyclerView.Adapter<FazerPedidoAdapter.
             tvName = itemView.findViewById(R.id.tv_produto_name);
             tvDescricao = itemView.findViewById(R.id.tv_produto_descricao);
             tvValor = itemView.findViewById(R.id.tv_valor);
-        //    tvQuantidade = itemView.findViewById(R.id.tv_quantidade2);
-        //    tvValorTotal = itemView.findViewById(R.id.tv_total);
+            tvQuantidade = itemView.findViewById(R.id.tv_quantidade2);
+            tvValorTotal = itemView.findViewById(R.id.tv_total);
             excluir = itemView.findViewById(R.id.imag_excluir);
 
             excluir.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, ProductsActivity.class);
+                    Intent intent = new Intent(context, FazerPedidoActivity.class);
+                    ProductOrderTemp productOrderTemp = productOrderTemps.get(getAdapterPosition());
+                    dbInstance.productOrderTempDAO().deleteProduct(productOrderTemp);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     context.startActivity(intent);
                 }
             });
-
         }
     }
 }

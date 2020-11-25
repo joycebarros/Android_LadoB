@@ -19,10 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.FazerPedidoActivity" />
+        <activity android:name=".view.FazerPedidoActivity"
+            android:label="Pedidos"/>
         <activity android:name=".view.ProductOrderActivity"
             android:label="Resumo dos pedidos"/>
-        <activity android:name=".view.AddProductsActivity" />
+        <activity android:name=".view.AddProductsActivity"
+            android:label="Produto"/>
         <activity android:name=".view.PagamentoActivity"
             android:label="Pagamento"/>
         <activity android:name=".view.ProductsActivity"

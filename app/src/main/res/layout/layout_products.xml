@@ -21,10 +21,10 @@
         android:textStyle="bold"
         android:textSize="18dp"
         android:text="Aqui entra o nome do produto"
+        android:layout_marginTop="15dp"
         app:layout_constraintStart_toEndOf="@id/image_queijudo"
         app:layout_constraintEnd_toStartOf="@id/tv_valor"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/image_queijudo"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tv_produto_descricao"

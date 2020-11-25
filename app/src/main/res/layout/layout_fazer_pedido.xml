@@ -35,45 +35,45 @@
         app:layout_constraintEnd_toStartOf="@id/tv_valor"
         app:layout_constraintStart_toEndOf="@id/image_queijudo" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_quantidade_texto"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:text="Quantidade: "-->
-<!--        android:gravity="left"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_produto_descricao"-->
-<!--        app:layout_constraintEnd_toStartOf="@id/tv_quantidade2"-->
-<!--        app:layout_constraintStart_toEndOf="@id/image_queijudo" />-->
+    <TextView
+        android:id="@+id/tv_quantidade_texto"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:text="Quantidade: "
+        android:gravity="left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_produto_descricao"
+        app:layout_constraintEnd_toStartOf="@id/tv_quantidade2"
+        app:layout_constraintStart_toEndOf="@id/image_queijudo" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_quantidade2"-->
-<!--        android:layout_width="30dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:text="Qt "-->
-<!--        android:gravity="left"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_produto_descricao"-->
-<!--        app:layout_constraintEnd_toStartOf="@id/tv_total_texto"-->
-<!--        app:layout_constraintStart_toEndOf="@id/tv_quantidade_texto" />-->
+    <TextView
+        android:id="@+id/tv_quantidade2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="Qt "
+        android:gravity="left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_produto_descricao"
+        app:layout_constraintEnd_toStartOf="@id/tv_total_texto"
+        app:layout_constraintStart_toEndOf="@id/tv_quantidade_texto" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_total_texto"-->
-<!--        android:layout_width="60dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:text="Total: R$ "-->
-<!--        android:gravity="left"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_produto_descricao"-->
-<!--        app:layout_constraintEnd_toStartOf="@id/tv_total"-->
-<!--        app:layout_constraintStart_toEndOf="@id/tv_quantidade2" />-->
+    <TextView
+        android:id="@+id/tv_total_texto"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:text="Total: R$ "
+        android:gravity="left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_produto_descricao"
+        app:layout_constraintEnd_toStartOf="@id/tv_total"
+        app:layout_constraintStart_toEndOf="@id/tv_quantidade2" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_total"-->
-<!--        android:layout_width="40dp"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:text=" R$ "-->
-<!--        android:gravity="left"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_produto_descricao"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toEndOf="@id/tv_total_texto" />-->
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:text=" R$ "
+        android:gravity="left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_produto_descricao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_total_texto" />
 
     <ImageView
         android:id="@+id/imag_excluir"

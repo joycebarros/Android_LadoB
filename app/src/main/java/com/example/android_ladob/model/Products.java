@@ -1,10 +1,13 @@
 package com.example.android_ladob.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 import java.util.List;
-
+@Entity
 public class Products implements Serializable {
-
+    @PrimaryKey
     private Long id;
     private String name;
     private String description;

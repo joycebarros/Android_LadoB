@@ -18,12 +18,15 @@ import com.example.android_ladob.adapter.FazerPedidoAdapter;
 import com.example.android_ladob.adapter.ProductOrderAdapter;
 import com.example.android_ladob.adapter.ProductsAdapter;
 import com.example.android_ladob.config.RetrofitConfig;
+import com.example.android_ladob.config.RoomConfig;
 import com.example.android_ladob.model.Orders;
 import com.example.android_ladob.model.ProductOrder;
+import com.example.android_ladob.model.ProductOrderTemp;
 import com.example.android_ladob.model.Products;
 import com.example.android_ladob.repository.ResultEventProductOrder;
 import com.example.android_ladob.repository.ResultEventProducts;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,11 +46,16 @@ public class FazerPedidoActivity extends AppCompatActivity {
     private int quantidade;
     private TextView tvQuantidade;
     private TextView tvValorTotalItem;
+    private List<ProductOrderTemp> productOrderTemps;
+    private ProductOrderTemp productOrderTemp;
+    private RoomConfig dbInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fazer_pedido);
+
+        dbInstance = RoomConfig.getInstance(this);
 
         recyclerView = findViewById(R.id.rv_productsPedido);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -55,9 +63,6 @@ public class FazerPedidoActivity extends AppCompatActivity {
         totalPedido = findViewById(R.id.tv_totalPedido);
         addMaisItens = findViewById(R.id.txt_AddMais);
         Button btFazerPedido = findViewById(R.id.btFazerPedido);
-
-        products = (Products) getIntent().getSerializableExtra(AddProductsActivity.ITEM_ID_EXTRA);
-        quantidade = (int) getIntent().getSerializableExtra(AddProductsActivity.ITEM_QUANTIDADE_EXTRA);
 
         ImageView imageView = findViewById(R.id.imag_voltar);
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -70,23 +75,18 @@ public class FazerPedidoActivity extends AppCompatActivity {
             }
         });
 
-        getProductId(products.getId(), new ResultEventProducts() {
-            @Override
-            public void onResult(List<Products> products) {
-                fazerPedidoAdapter = new FazerPedidoAdapter(FazerPedidoActivity.this, products);
-                recyclerView.setAdapter(fazerPedidoAdapter);
-            }
-
-            @Override
-            public void onFail(String message) {
-                Toast.makeText(FazerPedidoActivity.this, message, Toast.LENGTH_LONG).show();
-            }
-        });
+        productOrderTemps = dbInstance.productOrderTempDAO().getAll();
+        fazerPedidoAdapter = new FazerPedidoAdapter(FazerPedidoActivity.this, productOrderTemps);
+        recyclerView.setAdapter(fazerPedidoAdapter);
+        getTotal(productOrderTemps);
 
         btFazerPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createProductOrder(productOrder);
+                Intent intent = new Intent(FazerPedidoActivity.this, CostumersActivity.class);
+                createProductOrder(productOrderTemps);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
 
@@ -101,55 +101,47 @@ public class FazerPedidoActivity extends AppCompatActivity {
 
     }
 
-    public void getProductId (Long id, final ResultEventProducts resultEventProducts){
-        Call<Products> call = new RetrofitConfig().getProductsService().getProducts(id);
-
-        call.enqueue(new Callback<Products>() {
-            @Override
-            public void onResponse(Call<Products> call, Response<Products> response) {
-                Products products = response.body();
-                List<Products> productsList = new ArrayList<>();
-                productsList.add(products);
-
-                Double total = products.getUnitPrice() * quantidade;
-                totalPedido.setText(String.valueOf(total));
-
-                resultEventProducts.onResult(productsList);
-            }
-
-            @Override
-            public void onFailure(Call<Products> call, Throwable t) {
-                resultEventProducts.onFail("Falha na requisição!");
-            }
-        });
+    public void getTotal(List<ProductOrderTemp> productOrderTemps){
+        Double unitPrice = 0.0;
+        int quantity = 0;
+        Double total = 0.0;
+        for(ProductOrderTemp productOrderTemp1: productOrderTemps){
+            unitPrice = productOrderTemp1.getProducts().getUnitPrice();
+            quantity = productOrderTemp1.getQuantity();
+            total = total + (unitPrice * quantity);
+        }
+        totalPedido.setText(String.valueOf(total));
     }
+ 
+    public void createProductOrder(List<ProductOrderTemp> productOrderTemps){
 
-    public void createProductOrder(ProductOrder productOrder){
-        ProductOrder productOrder1 = new ProductOrder();
-        productOrder1.setQuantity(quantidade);
-        Orders orders = new Orders();
-        orders.setId((long) 1);
-        productOrder1.setOrders(orders);
-        productOrder1.setProducts(products);
+       List<ProductOrder> productOrderList = dbInstance.productOrderTempDAO().getAllProductOrder();
+       for(ProductOrder productOrder1: productOrderList){
+           productOrder1.getQuantity();
+           Orders orders = new Orders();
+           orders.setId((long) 1);
+           productOrder1.setOrders(orders);
+           productOrder1.getProducts();
 
-        Call<ProductOrder> call = new RetrofitConfig().getProductOrderService().create(productOrder1);
+           Call<ProductOrder> call = new RetrofitConfig().getProductOrderService().create(productOrder1);
 
-        call.enqueue(new Callback<ProductOrder>() {
-            @Override
-            public void onResponse(Call<ProductOrder> call, Response<ProductOrder> response) {
-                if(response.isSuccessful()){
-                    ProductOrder productOrder2 = response.body();
-                    Toast.makeText(FazerPedidoActivity.this, "Sucesso ao criar o ProductOrder", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(FazerPedidoActivity.this, "Erro no sucesso!", Toast.LENGTH_LONG).show();
-                }
-            }
+           call.enqueue(new Callback<ProductOrder>() {
+               @Override
+               public void onResponse(Call<ProductOrder> call, Response<ProductOrder> response) {
+                   if(response.isSuccessful()){
+                       ProductOrder productOrder2 = response.body();
+                       Toast.makeText(FazerPedidoActivity.this, "Pedido realizado com Sucesso!", Toast.LENGTH_LONG).show();
+                   }else{
+                       Toast.makeText(FazerPedidoActivity.this, "Erro no sucesso!", Toast.LENGTH_LONG).show();
+                   }
+               }
 
-            @Override
-            public void onFailure(Call<ProductOrder> call, Throwable t) {
-                Toast.makeText(FazerPedidoActivity.this, "Falha ao criar o ProductOrder!", Toast.LENGTH_LONG).show();
-            }
-        });
+               @Override
+               public void onFailure(Call<ProductOrder> call, Throwable t) {
+                   Toast.makeText(FazerPedidoActivity.this, "Falha ao criar o Pedido!", Toast.LENGTH_LONG).show();
+               }
+           });
 
+       }
     }
 }
