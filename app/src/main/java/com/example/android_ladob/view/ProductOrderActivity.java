@@ -56,7 +56,9 @@ public class ProductOrderActivity extends AppCompatActivity {
         btFecharConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProductOrderActivity.this, PagamentoActivity.class);
+                Toast.makeText(ProductOrderActivity.this, "Sua conta está sendo fechada!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(ProductOrderActivity.this, CostumersActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });

@@ -9,21 +9,19 @@ import android.widget.ImageView;
 
 import com.example.android_ladob.R;
 
-public class PagamentoActivity extends AppCompatActivity {
+public class ReservaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pagamento);
+        setContentView(R.layout.activity_reserva);
 
         ImageView imageView = findViewById(R.id.imag_voltar);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PagamentoActivity.this, CostumersActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-
+                Intent intent = new Intent(ReservaActivity.this, CostumersActivity.class);
+                finish();
             }
         });
     }

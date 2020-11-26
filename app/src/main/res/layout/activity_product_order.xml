@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/txt_ResumoPedidos"
+        android:id="@+id/txt_cadastrar_pagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resumo dos Pedidos"
@@ -44,7 +44,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_ResumoPedidos"/>
+        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
 
     <Button
         android:id="@+id/btFecharConta"
@@ -53,7 +53,7 @@
         android:text="Fechar conta"
         android:layout_marginTop="40dp"
         android:background="@drawable/bt_rodeon"
-        android:textColor="#F8F6FA"
+        android:textColor="@color/cardview_light_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rv_productsPedido"/>

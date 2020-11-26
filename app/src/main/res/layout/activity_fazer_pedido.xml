@@ -145,9 +145,9 @@
                         android:id="@+id/textView13"
                         android:layout_width="match_parent"
                         android:layout_height="31dp"
-                        android:gravity="center"
                         android:layout_marginTop="-11dp"
-                        android:text="R$     8,00"
+                        android:gravity="center"
+                        android:text="R$  8,00"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -176,9 +176,9 @@
                         android:id="@+id/textView15"
                         android:layout_width="match_parent"
                         android:layout_height="33dp"
+                        android:layout_marginTop="-15dp"
                         android:gravity="center"
-                        android:text="R$     6,00"
-                        android:layout_marginTop="-14dp"
+                        android:text="R$  6,00"
                         android:textSize="14dp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -189,7 +189,7 @@
 
         <Button
             android:id="@+id/btFazerPedido"
-            android:layout_width="168dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
@@ -206,9 +206,7 @@
             android:radius="15dp"
             android:shadowColor="#EF4C40"
             android:text="Fazer pedido"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textColor="@color/cardview_light_background"/>
 
         <TextView
             android:id="@+id/txt_AddMais"

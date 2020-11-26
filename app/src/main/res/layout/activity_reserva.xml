@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ReservaActivity">
+
+    <ImageView
+        android:id="@+id/imag_gravata"
+        android:layout_width="130dp"
+        android:layout_height="110dp"
+        android:src="@drawable/ic_gravata"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_cadastrar_pagamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reserva de mesa"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#EF4C40"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/imag_gravata"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/imag_voltar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_resposta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+    android:id="@+id/data"
+    android:layout_width="200dp"
+    android:layout_height="80dp"
+    android:inputType="textPersonName"
+    android:hint="Data"
+    android:textColorHint="#bbb"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="70dp"
+    android:layout_marginLeft="30dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/imag_data"
+    app:layout_constraintTop_toBottomOf="@+id/txt_cadastrar_pagamento"/>
+
+    <ImageView
+        android:id="@+id/imag_data"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_data_do_calendario"
+        app:layout_constraintStart_toEndOf="@+id/data"
+        app:layout_constraintTop_toBottomOf="@+id/txt_cadastrar_pagamento" />
+
+    <EditText
+        android:id="@+id/hora"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:inputType="textPersonName"
+        android:hint="Hora"
+        android:textColorHint="#bbb"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imag_data"
+        app:layout_constraintTop_toBottomOf="@+id/data"/>
+
+    <ImageView
+        android:id="@+id/imag_hora"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_baseline_access_time_24"
+        app:layout_constraintStart_toEndOf="@+id/hora"
+        app:layout_constraintTop_toBottomOf="@+id/data" />
+
+    <EditText
+        android:id="@+id/pessoas"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:inputType="textPersonName"
+        android:hint="Nº de pessoas"
+        android:textColorHint="#bbb"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imag_pessoas"
+        app:layout_constraintTop_toBottomOf="@+id/hora"/>
+
+    <ImageView
+        android:id="@+id/imag_pessoas"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_baseline_people_24"
+        app:layout_constraintStart_toEndOf="@+id/pessoas"
+        app:layout_constraintTop_toBottomOf="@+id/hora" />
+
+    <Button
+        android:id="@+id/btReservar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Reservar"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bt_rodeon"
+        android:textColor="@color/cardview_light_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pessoas"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

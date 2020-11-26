@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.SplashScreenActivity"
+        <activity android:name=".view.ReservaActivity"
+            android:label="Reservas"></activity>
+        <activity
+            android:name=".view.SplashScreenActivity"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,22 +22,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.FazerPedidoActivity"
-            android:label="Pedidos"/>
-        <activity android:name=".view.ProductOrderActivity"
-            android:label="Resumo dos pedidos"/>
-        <activity android:name=".view.AddProductsActivity"
-            android:label="Produto"/>
-        <activity android:name=".view.PagamentoActivity"
-            android:label="Pagamento"/>
-        <activity android:name=".view.ProductsActivity"
-            android:label="Cardápio"/>
-        <activity android:name=".view.AddCostumersActivity"
-            android:label="Cadastro"/>
-        <activity android:name=".view.CostumersActivity"
-            android:label="Menu principal"/>
-        <activity android:name=".view.MainActivity"
-            android:label="Login"> </activity>
+        <activity
+            android:name=".view.FazerPedidoActivity"
+            android:label="Pedidos" />
+        <activity
+            android:name=".view.ProductOrderActivity"
+            android:label="Resumo dos pedidos" />
+        <activity
+            android:name=".view.AddProductsActivity"
+            android:label="Produto" />
+        <activity
+            android:name=".view.PagamentoActivity"
+            android:label="Pagamento" />
+        <activity
+            android:name=".view.ProductsActivity"
+            android:label="Cardápio" />
+        <activity
+            android:name=".view.AddCostumersActivity"
+            android:label="Cadastro" />
+        <activity
+            android:name=".view.CostumersActivity"
+            android:label="Menu principal" />
+        <activity
+            android:name=".view.MainActivity"
+            android:label="Login"></activity>
     </application>
 
 </manifest>

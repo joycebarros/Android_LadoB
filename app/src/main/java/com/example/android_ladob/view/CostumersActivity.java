@@ -20,6 +20,14 @@ public class CostumersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_costumers);
 
+        linearLayout = findViewById(R.id.llReservar);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CostumersActivity.this, ReservaActivity.class);
+                startActivity(intent);
+            }
+        });
         linearLayout = findViewById(R.id.llProducts);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

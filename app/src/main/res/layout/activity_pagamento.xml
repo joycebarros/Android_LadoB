@@ -1,42 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.PagamentoActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/imag_cancel"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:src="@drawable/ic_baseline_cancel_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imag_carregando"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/ic_carregando"
-        android:layout_marginTop="70dp"
+        android:id="@+id/imag_gravata"
+        android:layout_width="130dp"
+        android:layout_height="110dp"
+        android:src="@drawable/ic_gravata"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_cadastrar_pagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sua conta está sendo fechada!"
+        android:text="Cadastrar meio de pagamento"
         android:textSize="23dp"
         android:textStyle="bold"
         android:textColor="#EF4C40"
-        android:layout_marginTop="80dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/imag_gravata"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/imag_voltar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_resposta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/visa"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="7dp"
+        android:src="@drawable/ic_credit_card_visa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+
+    <ImageView
+        android:id="@+id/electron"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/ic_if_visa_electron"
+        app:layout_constraintStart_toEndOf="@+id/visa"
+        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+
+    <ImageView
+        android:id="@+id/mastercard"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/ic__mastercard"
+        app:layout_constraintStart_toEndOf="@+id/electron"
+        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+
+    <ImageView
+        android:id="@+id/american_express"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/ic_credit_card_maestro"
+        app:layout_constraintStart_toEndOf="@+id/mastercard"
+        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+
+    <ImageView
+        android:id="@+id/maestro"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/ic_credit_card_american_express"
+        app:layout_constraintStart_toEndOf="@+id/american_express"
+        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+
+    <ImageView
+        android:id="@+id/paypal"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/ic_credit_card_paypal"
+        app:layout_constraintStart_toEndOf="@+id/maestro"
+        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+
+    <EditText
+        android:id="@+id/n_cartao"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Número do cartão"
+        android:textColorHint="#bbb"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imag_carregando"/>
+        app:layout_constraintTop_toBottomOf="@+id/maestro"/>
+
+    <EditText
+        android:id="@+id/validade"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Validade"
+        android:inputType="textPersonName"
+        android:textColorHint="#bbb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/n_cartao" />
+
+    <EditText
+        android:id="@+id/cvv"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="CVV"
+        android:inputType="textPersonName"
+        android:textColorHint="#bbb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.012"
+        app:layout_constraintStart_toEndOf="@+id/validade"
+        app:layout_constraintTop_toBottomOf="@+id/n_cartao" />
+
+    <EditText
+        android:id="@+id/titular"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Titular"
+        android:textColorHint="#bbb"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/validade"/>
+
+    <EditText
+        android:id="@+id/n_cpf"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="CPF"
+        android:textColorHint="#bbb"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titular"/>
+
+    <Button
+        android:id="@+id/btSalvar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bt_rodeon"
+        android:textColor="@color/cardview_light_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/n_cpf"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
