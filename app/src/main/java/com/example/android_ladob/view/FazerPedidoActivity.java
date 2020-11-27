@@ -110,7 +110,7 @@ public class FazerPedidoActivity extends AppCompatActivity {
             quantity = productOrderTemp1.getQuantity();
             total = total + (unitPrice * quantity);
         }
-        totalPedido.setText(String.valueOf(total));
+        totalPedido.setText(String.format("R$ %.2f", total));
     }
  
     public void createProductOrder(List<ProductOrderTemp> productOrderTemps){

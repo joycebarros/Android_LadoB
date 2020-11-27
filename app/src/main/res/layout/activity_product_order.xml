@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/txt_cadastrar_pagamento"
+        android:id="@+id/txt_ler_qr_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resumo dos Pedidos"
@@ -44,7 +44,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+        app:layout_constraintTop_toBottomOf="@id/txt_ler_qr_code"/>
 
     <Button
         android:id="@+id/btFecharConta"
@@ -62,7 +62,7 @@
         android:id="@+id/tv_totalPedido_texto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Total do Pedido:       R$"
+        android:text="Total do Pedido:      "
         android:textStyle="bold"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@
 
     <TextView
         android:id="@+id/tv_totalPedido"
-        android:layout_width="70dp"
+        android:layout_width="100dp"
         android:layout_height="30dp"
         android:text=" R$"
         android:textStyle="bold"

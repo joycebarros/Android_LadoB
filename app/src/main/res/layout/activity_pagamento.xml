@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/txt_cadastrar_pagamento"
+        android:id="@+id/txt_ler_qr_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cadastrar meio de pagamento"
@@ -44,7 +44,7 @@
         android:layout_marginLeft="7dp"
         android:src="@drawable/ic_credit_card_visa"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+        app:layout_constraintTop_toBottomOf="@id/txt_ler_qr_code"/>
 
     <ImageView
         android:id="@+id/electron"
@@ -55,7 +55,7 @@
         android:layout_marginEnd="5dp"
         android:src="@drawable/ic_if_visa_electron"
         app:layout_constraintStart_toEndOf="@+id/visa"
-        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+        app:layout_constraintTop_toBottomOf="@id/txt_ler_qr_code"/>
 
     <ImageView
         android:id="@+id/mastercard"
@@ -66,7 +66,7 @@
         android:layout_marginEnd="5dp"
         android:src="@drawable/ic__mastercard"
         app:layout_constraintStart_toEndOf="@+id/electron"
-        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+        app:layout_constraintTop_toBottomOf="@id/txt_ler_qr_code"/>
 
     <ImageView
         android:id="@+id/american_express"
@@ -77,7 +77,7 @@
         android:layout_marginEnd="5dp"
         android:src="@drawable/ic_credit_card_maestro"
         app:layout_constraintStart_toEndOf="@+id/mastercard"
-        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+        app:layout_constraintTop_toBottomOf="@id/txt_ler_qr_code"/>
 
     <ImageView
         android:id="@+id/maestro"
@@ -88,7 +88,7 @@
         android:layout_marginEnd="5dp"
         android:src="@drawable/ic_credit_card_american_express"
         app:layout_constraintStart_toEndOf="@+id/american_express"
-        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+        app:layout_constraintTop_toBottomOf="@id/txt_ler_qr_code"/>
 
     <ImageView
         android:id="@+id/paypal"
@@ -99,7 +99,7 @@
         android:layout_marginEnd="5dp"
         android:src="@drawable/ic_credit_card_paypal"
         app:layout_constraintStart_toEndOf="@+id/maestro"
-        app:layout_constraintTop_toBottomOf="@id/txt_cadastrar_pagamento"/>
+        app:layout_constraintTop_toBottomOf="@id/txt_ler_qr_code"/>
 
     <EditText
         android:id="@+id/n_cartao"

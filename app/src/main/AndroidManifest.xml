@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.ReservaActivity"
-            android:label="Reservas"></activity>
+        <activity android:name=".view.QrCodeActivity"
+            android:label="QR Code"></activity>
+        <activity
+            android:name=".view.ReservaActivity"
+            android:label="Reservas" />
         <activity
             android:name=".view.SplashScreenActivity"
             android:noHistory="true">
@@ -45,7 +48,7 @@
             android:label="Menu principal" />
         <activity
             android:name=".view.MainActivity"
-            android:label="Login"></activity>
+            android:label="Login" />
     </application>
 
 </manifest>

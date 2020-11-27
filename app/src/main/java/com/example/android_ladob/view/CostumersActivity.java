@@ -32,7 +32,7 @@ public class CostumersActivity extends AppCompatActivity {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CostumersActivity.this, ProductsActivity.class);
+                Intent intent = new Intent(CostumersActivity.this, QrCodeActivity.class);
                 startActivity(intent);
             }
         });

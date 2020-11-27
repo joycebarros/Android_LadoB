@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/txt_cadastrar_pagamento"
+        android:id="@+id/txt_ler_qr_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reserva de mesa"
@@ -49,7 +49,7 @@
     android:layout_marginLeft="30dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toStartOf="@+id/imag_data"
-    app:layout_constraintTop_toBottomOf="@+id/txt_cadastrar_pagamento"/>
+    app:layout_constraintTop_toBottomOf="@+id/txt_ler_qr_code"/>
 
     <ImageView
         android:id="@+id/imag_data"
@@ -58,7 +58,7 @@
         android:layout_marginTop="30dp"
         android:src="@drawable/ic_data_do_calendario"
         app:layout_constraintStart_toEndOf="@+id/data"
-        app:layout_constraintTop_toBottomOf="@+id/txt_cadastrar_pagamento" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_ler_qr_code" />
 
     <EditText
         android:id="@+id/hora"

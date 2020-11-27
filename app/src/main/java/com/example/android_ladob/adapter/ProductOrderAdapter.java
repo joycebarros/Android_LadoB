@@ -42,9 +42,9 @@ public class ProductOrderAdapter extends RecyclerView.Adapter<ProductOrderAdapte
     public void onBindViewHolder(@NonNull ProductOrdersHolder holder, int position) {
         holder.tvName.setText(productOrders.get(position).getProducts().getName());
         holder.tvDescricao.setText(productOrders.get(position).getProducts().getDescription());
-        holder.tvValor.setText(String.valueOf(productOrders.get(position).getProducts().getUnitPrice()));
+        holder.tvValor.setText(String.format("R$ %.2f", productOrders.get(position).getProducts().getUnitPrice()));
         holder.tvQuantidade.setText(String.valueOf(productOrders.get(position).getQuantity()));
-        holder.tvValorTotal.setText(String.valueOf(productOrders.get(position).getProducts().getUnitPrice() *
+        holder.tvValorTotal.setText(String.format("R$ %.2f", productOrders.get(position).getProducts().getUnitPrice() *
                 productOrders.get(position).getQuantity()));
     }
 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.QrCodeActivity">
+
+    <ImageView
+        android:id="@+id/imag_gravata"
+        android:layout_width="130dp"
+        android:layout_height="110dp"
+        android:src="@drawable/ic_gravata"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_ler_qr_code"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Aponte para o QR Code para acessar o menu!"
+        android:textSize="23dp"
+        android:textStyle="bold"
+        android:textColor="#EF4C40"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/imag_gravata"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/imag_voltar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_resposta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/qr_code"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/ic_qr_code"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_ler_qr_code" />
+
+    <TextView
+        android:id="@+id/texto_teclado"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:text="Ou digite manualmente"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="80dp"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imag_teclado"
+        app:layout_constraintTop_toBottomOf="@+id/qr_code"/>
+
+    <ImageView
+        android:id="@+id/imag_teclado"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_tecla_do_teclado"
+        app:layout_constraintStart_toEndOf="@+id/texto_teclado"
+        app:layout_constraintTop_toBottomOf="@+id/qr_code">
+
+    </ImageView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

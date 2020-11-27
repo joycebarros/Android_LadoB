@@ -91,7 +91,7 @@ public class ProductOrderActivity extends AppCompatActivity {
                     Double valor = productOrder.getProducts().getUnitPrice() * productOrder.getQuantity();
                     total = total + valor;
                 }
-                tvTotalPedido.setText(String.valueOf(total));
+                tvTotalPedido.setText(String.format("R$ %.2f", total));
             }
 
             @Override

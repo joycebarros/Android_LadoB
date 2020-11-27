@@ -45,9 +45,9 @@ public class FazerPedidoAdapter extends RecyclerView.Adapter<FazerPedidoAdapter.
     public void onBindViewHolder(@NonNull FazerPedidoHolder holder, int position) {
         holder.tvName.setText(productOrderTemps.get(position).getProducts().getName());
         holder.tvDescricao.setText(productOrderTemps.get(position).getProducts().getDescription());
-        holder.tvValor.setText(String.valueOf(productOrderTemps.get(position).getProducts().getUnitPrice()));
+        holder.tvValor.setText(String.format("R$ %.2f", productOrderTemps.get(position).getProducts().getUnitPrice()));
         holder.tvQuantidade.setText(String.valueOf(productOrderTemps.get(position).getQuantity()));
-        holder.tvValorTotal.setText(String.valueOf(productOrderTemps.get(position).getProducts().getUnitPrice()
+        holder.tvValorTotal.setText(String.format("R$ %.2f", productOrderTemps.get(position).getProducts().getUnitPrice()
                 * productOrderTemps.get(position).getQuantity()));
 
     }

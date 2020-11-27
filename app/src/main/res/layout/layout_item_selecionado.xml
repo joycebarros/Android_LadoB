@@ -46,24 +46,13 @@
         app:layout_constraintTop_toBottomOf="@id/tv_produto_name" />
 
     <TextView
-        android:id="@+id/tv_valor_texto"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:textSize="16dp"
-        android:text="R$"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tv_valor"
-        app:layout_constraintTop_toBottomOf="@id/tv_produto_descricao" />
-
-    <TextView
         android:id="@+id/tv_valor"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:gravity="left"
         android:textSize="16dp"
         android:text="preço"
-        app:layout_constraintStart_toEndOf="@+id/tv_valor_texto"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_produto_descricao" />
 

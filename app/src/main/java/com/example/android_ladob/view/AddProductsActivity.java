@@ -70,7 +70,7 @@ public class AddProductsActivity extends AppCompatActivity {
         valor = findViewById(R.id.tv_valor);
         name.setText(products.getName());
         descricao.setText(products.getDescription());
-        valor.setText(String.valueOf(products.getUnitPrice()));
+        valor.setText(String.format("R$ %.2f", products.getUnitPrice()));
 
         setOnClickOnButtons();
 
@@ -104,7 +104,7 @@ public class AddProductsActivity extends AppCompatActivity {
                     Toast.makeText(AddProductsActivity.this, "A quantidade precisa ser maior do que zero", Toast.LENGTH_LONG).show();
                 }
                 tvQuantidade.setText(String.valueOf(totalQuantidade));
-                valor.setText(String.valueOf(products.getUnitPrice() * totalQuantidade));
+                valor.setText(String.format("R$ %.2f", products.getUnitPrice() * totalQuantidade));
             }
         });
 
@@ -113,7 +113,7 @@ public class AddProductsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 totalQuantidade = totalQuantidade + 1;
                 tvQuantidade.setText(String.valueOf(totalQuantidade));
-                valor.setText(String.valueOf(products.getUnitPrice() * totalQuantidade));
+                valor.setText(String.format("R$ %.2f", products.getUnitPrice() * totalQuantidade));
             }
         });
 

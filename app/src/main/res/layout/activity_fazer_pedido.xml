@@ -238,7 +238,7 @@
             android:layout_alignBottom="@+id/txt_AddMais"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="-42dp"
-            android:text="Total do Pedido:   R$"
+            android:text="Total do Pedido:   "
             android:textSize="18dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/tv_totalPedido"
@@ -246,7 +246,7 @@
 
         <TextView
             android:id="@+id/tv_totalPedido"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_alignLeft="@id/tv_totalPedido_texto"
             android:layout_alignBottom="@+id/txt_AddMais"

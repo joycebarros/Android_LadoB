@@ -43,7 +43,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
     public void onBindViewHolder(@NonNull ProductsHolder holder, int position) {
         holder.textname.setText(products.get(position).getName());
         holder.textdescription.setText(products.get(position).getDescription());
-        holder.textvalor.setText(String.valueOf(products.get(position).getUnitPrice()));
+        holder.textvalor.setText(String.format("R$ %.2f", products.get(position).getUnitPrice()));
     }
 
     @Override
